@@ -7,6 +7,7 @@ CFLAGS := -Wall -Werror -Wextra -Wshadow -Wno-shadow -std=c++98 -g
 SRCS := main.cpp \
 	AMateria.cpp \
 	ICharacter.cpp \
+	Character.cpp \
 	Ice.cpp \
 	Cure.cpp \
 

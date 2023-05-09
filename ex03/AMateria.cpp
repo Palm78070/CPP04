@@ -2,6 +2,7 @@
 
 AMateria::AMateria(std::string const &type) : _type(type)
 {
+ // std::cout << "AMateria is constructed" << std::endl;
 }
 
 AMateria::AMateria(AMateria const &x)
@@ -20,6 +21,7 @@ AMateria &AMateria::operator=(const AMateria &src)
 
 AMateria::~AMateria()
 {
+ // std::cout << "AMateria is destructed" << std::endl;
 }
 
 std::string const &AMateria::getType() const
