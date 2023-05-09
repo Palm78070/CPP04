@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter;
 class AMateria
 {
 protected:
@@ -13,7 +14,7 @@ public:
  AMateria(std::string const &type);
  AMateria(AMateria const &);
  AMateria &operator=(const AMateria &src);
- ~AMateria();
+ virtual ~AMateria();
  std::string const &getType() const;   // Return Materia type
  virtual AMateria *clone() const = 0;  // Return a new instance of the same type
  virtual void use(ICharacter &target); // diplay Character using material
