@@ -8,6 +8,7 @@ class Character : public ICharacter
 private:
  std::string _name;
  AMateria *_inventory[4];
+ AMateria *_matOnFloor[4];
 
 public:
  Character(std::string name);
@@ -18,6 +19,7 @@ public:
  virtual void equip(AMateria *m);
  virtual void unequip(int idx);
  virtual void use(int idx, ICharacter &target);
+ void leftOnFloor(AMateria *m);
 };
 
 #endif

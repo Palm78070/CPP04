@@ -21,7 +21,14 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src)
   if (this != &src)
   {
     while (++i < 4)
+    {
+      if (this->_matLearn[i] != NULL)
+      {
+        delete this->_matLearn[i];
+        this->_matLearn[i] = NULL;
+      }
       this->_matLearn[i] = src._matLearn[i];
+    }
   }
   return (*this);
 }
@@ -33,7 +40,10 @@ MateriaSource::~MateriaSource()
   while (++i < 4)
   {
     if (this->_matLearn[i] != NULL)
+    {
+      std::cout << "Clear learning materia => ";
       delete this->_matLearn[i];
+    }
   }
 }
 

@@ -5,7 +5,10 @@ Character::Character(std::string name) : _name(name)
   std::cout << "Character: " << this->_name << " is constructed" << std::endl;
   int i = -1;
   while (++i < 4)
+  {
     this->_inventory[i] = NULL;
+    this->_matOnFloor[i] = NULL;
+  }
 }
 
 Character::Character(Character const &x) : _name(x._name)
@@ -21,7 +24,20 @@ Character &Character::operator=(const Character &src)
   if (this != &src)
   {
     while (++i < 4)
+    {
+      if (this->_inventory[i] != NULL)
+      {
+        delete this->_inventory[i];
+        this->_inventory[i] = NULL;
+      }
+      if (this->_matOnFloor[i] != NULL)
+      {
+        delete this->_matOnFloor[i];
+        this->_matOnFloor[i] = NULL;
+      }
       this->_inventory[i] = src._inventory[i];
+      this->_matOnFloor[i] = src._matOnFloor[i];
+    }
     this->_name = src._name;
   }
   // std::cout << "Character: " << this->_name << " is copied by copy assignment operator" << std::endl;
@@ -38,6 +54,12 @@ Character::~Character()
     {
       delete this->_inventory[i];
       this->_inventory[i] = NULL;
+    }
+    if (this->_matOnFloor[i] != NULL)
+    {
+      std::cout << "Destroy materia: " << this->_matOnFloor[i]->getType() << " left on the floor => ";
+      delete this->_matOnFloor[i];
+      this->_matOnFloor[i] = NULL;
     }
   }
 }
@@ -62,6 +84,20 @@ void Character::equip(AMateria *m)
   std::cout << "Character: " << this->getName() << " cannot equip Materias " << m->getType() << std::endl;
 }
 
+void Character::leftOnFloor(AMateria *m)
+{
+  int i = -1;
+  while (++i < 4)
+  {
+    if (this->_matOnFloor[i] == NULL)
+    {
+      std::cout << "Unequip materia: " << m->getType() << " is left on the floor" << std::endl;
+      this->_matOnFloor[i] = m;
+      return;
+    }
+  }
+}
+
 void Character::unequip(int idx)
 {
   if (idx >= 0 && idx < 4)
@@ -72,7 +108,7 @@ void Character::unequip(int idx)
       return;
     }
     std::cout << "Character: " << this->getName() << " unequip Materias " << this->_inventory[idx]->getType() << std::endl;
-    delete this->_inventory[idx];
+    this->leftOnFloor(this->_inventory[idx]);
     this->_inventory[idx] = NULL;
     return;
   }
