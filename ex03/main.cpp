@@ -31,9 +31,20 @@ int main(void)
 	std::cout << "\n//////Create + equip Materia to me///////" << std::endl;
 	AMateria *tmp;
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	me->equip(tmp);;
+	me->equip(src->createMateria("cure"));
+	me->equip(src->createMateria("cure"));
+	me->equip(src->createMateria("cure"));
+	me->equip(src->createMateria("cure"));
+	me->unequip(0);
+	me->equip(src->createMateria("cure"));
+	me->unequip(0);
+	me->equip(src->createMateria("cure"));
+	me->unequip(0);
+	me->equip(src->createMateria("cure"));
+	me->unequip(0);
+	me->equip(src->createMateria("cure"));
+
 	std::cout << "///////////////////////////////////////" << std::endl;
 	std::cout << "\n//////////////Create character: Bob///////" << std::endl;
 	ICharacter *bob = new Character("bob");

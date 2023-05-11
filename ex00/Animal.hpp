@@ -22,12 +22,12 @@ class Animal
 
 	public:
 		Animal();
-		Animal(std::string type);
+		Animal(const std::string& type); // param -> const std::string & type
 		Animal(Animal const &);
 		Animal &operator=(const Animal &);
 		virtual ~Animal();
 
-		std::string getType(void) const;
+		const std::string &getType(void) const; // return value -> const std::string &
 		virtual void makeSound(void) const;
 };
 

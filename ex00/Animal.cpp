@@ -12,12 +12,14 @@
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Animal")
+Animal::Animal() 
+: _type("Animal")
 {
 	std::cout << this->_type << " is constructed" << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type)
+Animal::Animal(const std::string& type) 
+: _type(type)
 {
 	std::cout << "Animal: " << this->_type << " is constructed" << std::endl;
 }
@@ -38,7 +40,7 @@ Animal &Animal::operator=(const Animal &src)
 	return (*this);
 }
 
-std::string Animal::getType(void) const
+const std::string& Animal::getType(void) const
 {
 	return (this->_type);
 }

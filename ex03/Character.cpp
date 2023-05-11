@@ -86,6 +86,7 @@ void Character::equip(AMateria *m)
 	int i = -1;
 	while (++i < 4)
 	{
+		std::cout << i << std::endl;
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;

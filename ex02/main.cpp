@@ -18,6 +18,7 @@
 
 int main(void)
 {
+	AAnimal aml;
 	std::cout << "////////Test cat class//////" << std::endl;
 	AAnimal *cat = new Cat();
 	cat->makeSound();

@@ -27,6 +27,10 @@ int main(void)
 	std::cout << "\n/////////Create class Animal => sub-type: Cat/////////" << std::endl;
 	const Animal *i = new Cat();
 	std::cout << "////////////////////////////////////////////////////" << std::endl;
+	std::cout << "\n/////////Create class Animal => sub-type: Cat/////////" << std::endl;
+	const Animal k = *i;
+	const Animal l(*i);
+	std::cout << "////////////////////////////////////////////////////" << std::endl;
 	std::cout << "\n/////////Get type of Dog//////////////" << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << "/////////////////////////////////////////" << std::endl;

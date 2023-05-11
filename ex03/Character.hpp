@@ -14,13 +14,14 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#include <limits.h>
 
 class Character : public ICharacter
 {
 	private:
 		std::string _name;
 		AMateria *_inventory[4];
-		AMateria *_matOnFloor[4];
+		AMateria *_matOnFloor[INT_MAX];
 
 	public:
 		Character(std::string name);

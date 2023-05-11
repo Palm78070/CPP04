@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONG_ANIMAL_HPP
-#define WRONG_ANIMAL_HPP
+// #ifndef WRONGANIMAL_HPP
+// #define WRONGANIMAL_HPP
 
-#include <iostream>
+#pragma once
+
 
 class WrongAnimal
 {
@@ -31,4 +32,4 @@ class WrongAnimal
 		void makeSound(void) const;
 };
 
-#endif
+// #endif

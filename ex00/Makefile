@@ -1,8 +1,8 @@
 NAME := a.out
 
-CC := c++
+CXX := c++
 
-CFLAGS := -Wall -Werror -Wextra -Wshadow -Wno-shadow -std=c++98 -g
+CXXFLAGS := -Wall -Werror -Wextra -Wshadow --std=c++98 -g
 
 SRCS := main.cpp \
 	Animal.cpp \
@@ -16,10 +16,7 @@ OBJS := $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -o $@ $^
-
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	rm -rf $(NAME) *.dSYM ${OBJS}
